@@ -3,7 +3,6 @@ package Vendas;
 import Cupons.Cupom;
 import Cupons.CupomInvalidoException;
 import Produtos.Produto;
-import Produtos.ProdutoInterface;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,7 @@ public class Venda{
     private boolean finalizada = false;
     public double total = 0;
     public Cupom cupomAplicado;
-    private List<ProdutoInterface> listaProdutos = new ArrayList<>();
+    private List<Produto> listaProdutos = new ArrayList<>();
 
     public Venda(){
         this.idUnico = id;
@@ -48,7 +47,7 @@ public class Venda{
         for (Cupom cupom : Cupom.listaCupons){
             if(cupom.getCodigo().equals(codigoCupom)){
                 if(cupom.getStatus()){
-                    if(cupom.eValido(total)){
+                    if(cupom.isCupomValido(total)){
                         cupomAplicado = cupom;
                         break;
                     }
@@ -72,19 +71,19 @@ public class Venda{
             Scanner scanner = new Scanner(System.in);
             String codigoCupom = scanner.nextLine();
 
-            if (codigoCupom.equals("continuar") || aplicarCupom(codigoCupom)) {
+            if(codigoCupom.equals("cancelar")){
+                System.out.println("Venda não finalizada, tente novamente.");
+            }else if (codigoCupom.equals("continuar") || aplicarCupom(codigoCupom)) {
                 finalizada = true;
                 System.out.println("\nVenda finalizada.");
                 this.relatorioVenda();
-            }else if(codigoCupom.equals("cancelar")){
-                System.out.println("Venda não finalizada, tente novamente.");
             }
         }
     }
 
     public void relatorioVenda() {
         System.out.println("------- VENDA " + this.idUnico + " -------");
-        for(ProdutoInterface produto: listaProdutos){
+        for(Produto produto: listaProdutos){
             System.out.println(produto.getNome() + " - R$" + produto.getPreco());
         }
         System.out.println("Cupom aplicado: " + (cupomAplicado != null ? cupomAplicado.getCodigo() : "nenhum"));

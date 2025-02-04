@@ -10,7 +10,7 @@ public class CupomQuantidadeLimitada extends Cupom{
     }
 
     @Override
-    public boolean eValido(double valor) {
+    public boolean isCupomValido(double valor) {
         if(!(usoMax > quantUsada)){
             throw new CupomInvalidoException("O limite de usos do cupom já foi atingido.");
         }

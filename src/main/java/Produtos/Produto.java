@@ -1,6 +1,6 @@
 package Produtos;
 
-public abstract class Produto implements ProdutoInterface{
+public class Produto {
     private static int id = 0;
     private int idUnico;
     public String nome;
@@ -12,7 +12,6 @@ public abstract class Produto implements ProdutoInterface{
         this.preco = preco;
     }
 
-    @Override
     public String getNome() {
         return this.nome;
     }
@@ -21,7 +20,6 @@ public abstract class Produto implements ProdutoInterface{
         return this.preco;
     }
 
-    @Override
     public void setPreco(double valor){
         if(valor > 0)
             this.preco = valor;

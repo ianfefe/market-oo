@@ -3,7 +3,7 @@ package Cupons;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Cupom implements CupomInterface{
+public abstract class Cupom {
     private String codigo;
     private boolean ativo = true;
     protected double valorDesconto;
@@ -27,4 +27,6 @@ public abstract class Cupom implements CupomInterface{
     public boolean getStatus(){
         return this.ativo;
     }
+
+    public abstract boolean isCupomValido(double valor);
 }

@@ -2,6 +2,7 @@ import Cupons.CupomQuantidadeLimitada;
 import Cupons.CupomValorMinimo;
 import Produtos.Alimento;
 import Produtos.Eletronico;
+import Produtos.Produto;
 import Vendas.GestorVendas;
 import Vendas.Venda;
 
