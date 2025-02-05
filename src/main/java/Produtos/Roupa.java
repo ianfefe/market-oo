@@ -1,6 +1,6 @@
 package Produtos;
 
-public class Roupa extends Produto{
+public class Roupa extends Produto {
     TamanhosRoupa tamanho;
     CoresRoupa cor;
 

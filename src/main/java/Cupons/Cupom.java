@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Cupom {
-    private String codigo;
-    private boolean ativo = true;
-    protected double valorDesconto;
     public static List<Cupom> listaCupons = new ArrayList<>();
+    protected boolean ativo = true;
+    protected double valorDesconto;
+    private final String codigo;
 
     protected Cupom(String codigo, double valorDesconto) {
         this.codigo = codigo;
@@ -16,15 +16,15 @@ public abstract class Cupom {
 
     }
 
-    public String getCodigo(){
+    public String getCodigo() {
         return this.codigo;
     }
 
-    public double getDesconto(){
+    public double getDesconto() {
         return this.valorDesconto;
     }
 
-    public boolean getStatus(){
+    public boolean getStatus() {
         return this.ativo;
     }
 

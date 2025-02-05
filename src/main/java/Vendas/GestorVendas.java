@@ -6,16 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GestorVendas implements Relatorio {
-    private static List<Venda> listaVendas = new ArrayList<>();
+    private static final List<Venda> listaVendas = new ArrayList<>();
 
-    protected static void adicionaVenda(Venda venda){
+    protected static void adicionaVenda(Venda venda) {
         listaVendas.add(venda);
     }
 
     @Override
     public void gerarRelatorioVendas() {
         System.out.println("\n------- RELATORIO DE VENDAS -------\n");
-        for(Venda venda : listaVendas){
+        for (Venda venda : listaVendas) {
             venda.relatorioVenda();
             System.out.println("  STATUS: " + (venda.getStatus() ? "FINALIZADA" : "EM ANDAMENTO" + "\n"));
         }
@@ -25,8 +25,8 @@ public class GestorVendas implements Relatorio {
     @Override
     public void listarCuponsAtivos() {
         System.out.println("---- CUPONS ATIVOS ----");
-        for(Cupom cupom : Cupom.listaCupons){
-            if(cupom.getStatus()){
+        for (Cupom cupom : Cupom.listaCupons) {
+            if (cupom.getStatus()) {
                 System.out.println(cupom.getCodigo());
             }
         }

@@ -1,9 +1,9 @@
 package Produtos;
 
 public class Produto {
-    private static int id = 0;
-    private int idUnico;
     public String nome;
+    private static int id = 0;
+    private final int idUnico;
     private double preco;
 
     protected Produto(String nome, double preco) {
@@ -16,12 +16,12 @@ public class Produto {
         return this.nome;
     }
 
-    public double getPreco(){
+    public double getPreco() {
         return this.preco;
     }
 
-    public void setPreco(double valor){
-        if(valor > 0)
+    public void setPreco(double valor) {
+        if (valor > 0)
             this.preco = valor;
         else
             System.out.println("Valor não permitido");
