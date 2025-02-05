@@ -11,7 +11,6 @@ public class AplicarCupomTeste {
 
     @Test
     public void cupomInexistenteTeste() {
-        CupomValorMinimo cupom = new CupomValorMinimo("CUPOM1",10,0);
         Venda venda = new Venda();
 
         CupomInvalidoException cupomInexistente = assertThrows(
@@ -19,7 +18,7 @@ public class AplicarCupomTeste {
                 () -> venda.aplicarCupom("CUPOM2")
         );
 
-        assertEquals("Cupom não encontrado.", cupomInexistente.getMessage());
+        assertEquals("Cupom não encontrado.\n", cupomInexistente.getMessage());
 
     }
 
@@ -34,7 +33,7 @@ public class AplicarCupomTeste {
                 () -> venda.aplicarCupom("CUPOM3")
         );
 
-        assertEquals("Não é possível sobrescrever cupom aplicado.", cupomSobrescrever.getMessage());
+        assertEquals("Não é possível sobrescrever cupom aplicado.\n", cupomSobrescrever.getMessage());
 
     }
 
@@ -48,6 +47,6 @@ public class AplicarCupomTeste {
                 () -> venda.aplicarCupom("CUPOM4")
         );
 
-        assertEquals("Cupom esgotado.", cupomLimitado.getMessage());
+        assertEquals("Cupom esgotado.\n", cupomLimitado.getMessage());
     }
 }

@@ -17,7 +17,7 @@ public class GestorVendas implements Relatorio {
         System.out.println("\n------- RELATORIO DE VENDAS -------\n");
         for (Venda venda : listaVendas) {
             venda.relatorioVenda();
-            System.out.println("  STATUS: " + (venda.getStatus() ? "FINALIZADA" : "EM ANDAMENTO" + "\n"));
+            System.out.println("STATUS: " + (venda.getStatus() ? "FINALIZADA" : "EM ANDAMENTO"));
         }
         System.out.println("-----------------------------------\n");
     }

@@ -12,17 +12,26 @@ public class CupomQuantidadeLimitada extends Cupom {
         this.usoMax = usoMax;
     }
 
+    public void setQuantUsada(int quantUsada) {
+        if(quantUsada == -1){
+            this.quantUsada--;
+            this.ativo = true;
+        }
+    }
+
     @Override
     public boolean isCupomValido(double valor) {
-        System.out.println("Cupom aplicado!");
-        System.out.println("Você ganhou R$" + valorDesconto + " de desconto!");
-        quantUsada++;
-
-        if (quantUsada >= usoMax) {
+        if (quantUsada < usoMax) {
+            System.out.println("Cupom aplicado!");
+            System.out.println("Você ganhou R$" + valorDesconto + " de desconto!\n");
+            quantUsada++;
+            if(quantUsada == usoMax){
+                this.ativo = false;
+            }
+            return true;
+        }else{
             this.ativo = false;
             return false;
         }
-
-        return true;
     }
 }
